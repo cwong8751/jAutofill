@@ -7,3 +7,6 @@ you input your information and jautofiller will try to match the forms and put y
 
 ## why
 because i am lazy. 
+
+## license
+mit 
