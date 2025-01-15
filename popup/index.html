@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jautofiller</title>
+</head>
+
+<body>
+  <h1>jautofiller</h1>
+  <i>a auto resume filler</i>
+  <hr>
+
+  <section>
+    <h2>personal info</h2>
+    <label for="firstName">Legal First Name:</label>
+    <input type="text" id="firstName" name="firstName"><br><br>
+
+    <label for="lastName">Legal Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br><br>
+
+    <label for="preferredName">Preferred Name:</label>
+    <input type="text" id="preferredName" name="preferredName"><br><br>
+
+    <label for="gender">Gender:</label>
+    <input type="text" id="gender" name="gender"><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" placeholder="line 1"><br>
+    <input type="text" id="address-line2" name="address" placeholder="line 2"><br>
+    <input type="text" id="address-city" name="address" placeholder="city"><br>
+    <input type="text" id="address-zip" name="address" placeholder="zip code"><br>
+    <input type="text" id="address-country" name="address" placeholder="country"><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone"><br><br>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email"><br><br>
+  </section>
+  <hr>
+  <section>
+    <h2>account info</h2>
+    <p>(for the ones that require an account to apply)</p>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+  </section>
+
+  <hr>
+  <section>
+    <h2>education</h2>
+    <label for="schoolName">School Name:</label><br>
+    <input type="text" id="schoolName" name="schoolName"><br><br>
+
+    <label for="levelOfEducation">Level of Education:</label><br>
+    <select id="levelOfEducation" name="levelOfEducation">
+      <option value="highSchool">High School</option>
+      <option value="associates">Associate's Degree</option>
+      <option value="bachelors">Bachelor's Degree</option>
+      <option value="masters">Master's Degree</option>
+      <option value="doctorate">Doctorate</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="major">Major:</label><br>
+    <input type="text" id="major" name="major"><br><br>
+
+    <label for="minor">Minor:</label><br>
+    <input type="text" id="minor" name="minor"><br><br>
+
+    <label>From:</label><br>
+    <select id="fromMonth" name="fromMonth">
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+    <input type="number" id="fromYear" name="fromYear" min="1900" max="2100" value="2024"><br><br>
+
+    <label>To:</label><br>
+    <select id="toMonth" name="toMonth">
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+      <option value="present">Present</option>
+    </select>
+    <input type="number" id="toYear" name="toYear" min="1900" max="2100" value="2024"><br><br>
+  </section>
+
+  <hr>
+  <section>
+    <h2>work experience</h2>
+    <label for="jobTitle">Job Title:</label><br>
+    <input type="text" id="jobTitle" name="jobTitle"><br><br>
+
+    <label for="company">Company/Organization:</label><br>
+    <input type="text" id="company" name="company"><br><br>
+
+    <label for="location">Location:</label><br>
+    <input type="text" id="location" name="location"><br><br>
+
+    <label>From:</label><br>
+    <select id="fromMonth" name="fromMonth">
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+    <input type="number" id="fromYear" name="fromYear" min="1900" max="2100" value="2024"><br><br>
+
+    <label>To:</label><br>
+    <select id="toMonth" name="toMonth">
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+      <option value="present">Present</option>
+    </select>
+    <input type="number" id="toYear" name="toYear" min="1900" max="2100" value="2024"><br><br>
+
+    <input type="checkbox" id="currentJob" name="currentJob">
+    <label for="currentJob">I currently work here</label><br><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+    <button id="addMoreWorkButton">Add more</button>
+  </section>
+
+  <hr>
+  <section>
+    <h2>citizenship and visa</h2>
+    <label>Are you currently eligible to work in the United States?</label><br>
+    <input type="radio" id="eligibleYes" name="eligible" value="yes" required>
+    <label for="eligibleYes">Yes</label>
+    <input type="radio" id="eligibleNo" name="eligible" value="no" required>
+    <label for="eligibleNo">No</label><br><br>
+
+    <label>Do you now or in the future require visa sponsorship to continue working in the United States?</label><br>
+    <input type="radio" id="sponsorYes" name="sponsor" value="yes" required>
+    <label for="sponsorYes">Yes</label>
+    <input type="radio" id="sponsorNo" name="sponsor" value="no" required>
+    <label for="sponsorNo">No</label><br><br>
+
+    <label for="visa-description">Visa description:</label><br>
+    <textarea id="visa-description" name="description" rows="4" cols="50"></textarea><br><br>
+  </section>
+
+  <hr>
+  <section>
+    <h2>EEOC questions US only</h2>
+    <!--<p>these are for US job applications that require answering EEOC questions. if you use this section you understand
+      all the consequences, and you should check your answers after they have been autofilled. jautofiller will not sign
+      for you. </p>-->
+
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender">
+      <option value="">-- Select --</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="non-binary">Non-Binary</option>
+      <option value="prefer-not-to-say">Prefer not to say</option>
+    </select><br><br>
+
+    <label for="race">Race/Ethnicity:</label><br>
+    <select id="race" name="race">
+      <option value="">-- Select --</option>
+      <option value="hispanic-latino">Hispanic or Latino</option>
+      <option value="white">White</option>
+      <option value="black-african-american">Black or African American</option>
+      <option value="native-american-alaskan-native">Native American or Alaskan Native</option>
+      <option value="asian">Asian</option>
+      <option value="native-hawaiian-pacific-islander">Native Hawaiian or Pacific Islander</option>
+      <option value="two-or-more-races">Two or More Races</option>
+      <option value="prefer-not-to-say">Prefer not to say</option>
+    </select><br><br>
+
+    <label for="veteran">Veteran Status:</label><br>
+    <select id="veteran" name="veteran">
+      <option value="">-- Select --</option>
+      <option value="not-a-veteran">Not a Veteran</option>
+      <option value="protected-veteran">Protected Veteran</option>
+      <option value="recently-separated-veteran">Recently Separated Veteran</option>
+      <option value="armed-forces-service-medal-veteran">Armed Forces Service Medal Veteran</option>
+      <option value="other-protected-veteran">Other Protected Veteran</option>
+      <option value="prefer-not-to-say">Prefer not to say</option>
+    </select><br><br>
+
+    <label for="disability">Disability Status:</label><br>
+    <select id="disability" name="disability">
+      <option value="">-- Select --</option>
+      <option value="yes">Yes, I have a disability (or have a history of a disability)</option>
+      <option value="no">No, I don't have a disability (or a history of a disability)</option>
+      <option value="prefer-not-to-say">I don't wish to answer</option>
+    </select><br><br>
+    <p>For more information about disability classifications, please visit the <a
+        href="https://www.eeoc.gov/disability-discrimination" target="_blank">EEOC website</a>.</p>
+
+  </section>
+
+  <hr>
+
+  <button id="saveButton">Save</button>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

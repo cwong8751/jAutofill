@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"] {
+    width: calc(100% - 12px);
+    /* Account for padding */
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    /* Include padding in width */
+}
+
+#saveButton {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
