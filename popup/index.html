@@ -110,58 +110,61 @@
   </section>
 
   <hr>
-  <section>
+  <section class="workSectionContainer">
     <h2>work experience</h2>
-    <label for="jobTitle">Job Title:</label><br>
-    <input type="text" id="jobTitle" name="jobTitle"><br><br>
+    <div id="workExperienceContainer">
+      <label for="jobTitle">Job Title:</label><br>
+      <input type="text" id="jobTitle" name="jobTitle"><br><br>
 
-    <label for="company">Company/Organization:</label><br>
-    <input type="text" id="company" name="company"><br><br>
+      <label for="company">Company/Organization:</label><br>
+      <input type="text" id="company" name="company"><br><br>
 
-    <label for="location">Location:</label><br>
-    <input type="text" id="location" name="location"><br><br>
+      <label for="location">Location:</label><br>
+      <input type="text" id="location" name="location"><br><br>
 
-    <label>From:</label><br>
-    <select id="fromMonth" name="fromMonth">
-      <option value="01">January</option>
-      <option value="02">February</option>
-      <option value="03">March</option>
-      <option value="04">April</option>
-      <option value="05">May</option>
-      <option value="06">June</option>
-      <option value="07">July</option>
-      <option value="08">August</option>
-      <option value="09">September</option>
-      <option value="10">October</option>
-      <option value="11">November</option>
-      <option value="12">December</option>
-    </select>
-    <input type="number" id="fromYear" name="fromYear" min="1900" max="2100" value="2024"><br><br>
+      <label>From:</label><br>
+      <select id="fromMonth" name="fromMonth">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <input type="number" id="fromYear" name="fromYear" min="1900" max="2100" value="2024"><br><br>
 
-    <label>To:</label><br>
-    <select id="toMonth" name="toMonth">
-      <option value="01">January</option>
-      <option value="02">February</option>
-      <option value="03">March</option>
-      <option value="04">April</option>
-      <option value="05">May</option>
-      <option value="06">June</option>
-      <option value="07">July</option>
-      <option value="08">August</option>
-      <option value="09">September</option>
-      <option value="10">October</option>
-      <option value="11">November</option>
-      <option value="12">December</option>
-      <option value="present">Present</option>
-    </select>
-    <input type="number" id="toYear" name="toYear" min="1900" max="2100" value="2024"><br><br>
+      <label>To:</label><br>
+      <select id="toMonth" name="toMonth">
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+        <option value="present">Present</option>
+      </select>
+      <input type="number" id="toYear" name="toYear" min="1900" max="2100" value="2024"><br><br>
 
-    <input type="checkbox" id="currentJob" name="currentJob">
-    <label for="currentJob">I currently work here</label><br><br>
+      <input type="checkbox" id="currentJob" name="currentJob">
+      <label for="currentJob">I currently work here</label><br><br>
 
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-    <button id="addMoreWorkButton">Add more</button>
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+      <button class="removeWorkButton" style="display:none;">Remove</button>
+      <button id="addMoreWorkButton">Add more</button><br><br>
+    </div>
   </section>
 
   <hr>
@@ -239,7 +242,7 @@
 
   <button id="saveButton">Save</button>
 
-  <script src="popup.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
