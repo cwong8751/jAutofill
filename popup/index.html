@@ -32,9 +32,10 @@
     <input type="text" id="address" name="address" placeholder="line 1" autocomplete="address-line1" required><br>
     <input type="text" id="address-line2" name="address" placeholder="line 2" autocomplete="address-line2"><br>
     <input type="text" id="address-city" name="address" placeholder="city" autocomplete="address-level2" required><br>
-    <input type="text" id="address-zip" name="address" placeholder="zip code" required><br>
-    <input type="text" id="address-country" name="address" placeholder="country" autocomplete="country-name" required><br><br>
-
+    <input type="number" id="address-zip" name="address" placeholder="zip" max="99999" min="00000" required><br>
+    <select id="address-country" name="address[country]" required>
+      <option value="">Select a Country</option>
+    </select><br><br>
     <label for="phone">Phone Number:</label>
     <input type="tel" id="phone" name="phone" required><br><br>
 
@@ -201,8 +202,8 @@
       all the consequences, and you should check your answers after they have been autofilled. jautofiller will not sign
       for you. </p>-->
 
-    <label for="gender">Gender:</label><br>
-    <select id="gender" name="gender">
+    <label for="eeocgender">Gender:</label><br>
+    <select id="eeocgender" name="eeocgender">
       <option value="">-- Select --</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
@@ -210,8 +211,8 @@
       <option value="prefer-not-to-say">Prefer not to say</option>
     </select><br><br>
 
-    <label for="race">Race/Ethnicity:</label><br>
-    <select id="race" name="race">
+    <label for="eeocrace">Race/Ethnicity:</label><br>
+    <select id="eeocrace" name="eeocrace">
       <option value="">-- Select --</option>
       <option value="hispanic-latino">Hispanic or Latino</option>
       <option value="white">White</option>
@@ -223,8 +224,8 @@
       <option value="prefer-not-to-say">Prefer not to say</option>
     </select><br><br>
 
-    <label for="veteran">Veteran Status:</label><br>
-    <select id="veteran" name="veteran">
+    <label for="eeocveteran">Veteran Status:</label><br>
+    <select id="eeocveteran" name="eeocveteran">
       <option value="">-- Select --</option>
       <option value="not-a-veteran">Not a Veteran</option>
       <option value="protected-veteran">Protected Veteran</option>
@@ -234,8 +235,8 @@
       <option value="prefer-not-to-say">Prefer not to say</option>
     </select><br><br>
 
-    <label for="disability">Disability Status:</label><br>
-    <select id="disability" name="disability">
+    <label for="eeocdisability">Disability Status:</label><br>
+    <select id="eeocdisability" name="eeocdisability">
       <option value="">-- Select --</option>
       <option value="yes">Yes, I have a disability (or have a history of a disability)</option>
       <option value="no">No, I don't have a disability (or a history of a disability)</option>

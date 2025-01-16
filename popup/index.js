@@ -1,5 +1,5 @@
 // add more button
-document.getElementById('addMoreWorkButton').addEventListener('click', function() {
+document.getElementById('addMoreWorkButton').addEventListener('click', function () {
 
     // renders the add more work form
     const workFormContainer = document.getElementById('workExperienceContainer');
@@ -11,10 +11,10 @@ document.getElementById('addMoreWorkButton').addEventListener('click', function(
     inputs.forEach(input => {
         if (input.type === 'checkbox') {
             input.checked = false;
-        } else if(input.tagName === 'SELECT'){
+        } else if (input.tagName === 'SELECT') {
             input.selectedIndex = 0;
         }
-         else {
+        else {
             input.value = '';
         }
     });
@@ -24,15 +24,15 @@ document.getElementById('addMoreWorkButton').addEventListener('click', function(
     workSectionContainer.appendChild(newContainer);
 });
 
-document.querySelector('.workSectionContainer').addEventListener('click', function(event){
-    if(event.target.classList.contains('removeWorkButton')){
+document.querySelector('.workSectionContainer').addEventListener('click', function (event) {
+    if (event.target.classList.contains('removeWorkButton')) {
         event.target.parentNode.remove();
     }
 })
 
 
 // save button
-document.getElementById('saveButton').addEventListener('click', function() {
+document.getElementById('saveButton').addEventListener('click', function () {
     // Object to store all the data
     const formData = {};
 
@@ -47,10 +47,10 @@ document.getElementById('saveButton').addEventListener('click', function() {
                 formData[key] = element.value;
             }
         } else if (elements.length > 1) { // Handle multiple elements with the same name (e.g., address lines)
-          formData[key] = [];
-          elements.forEach(element => {
-            formData[key].push(element.value);
-          });
+            formData[key] = [];
+            elements.forEach(element => {
+                formData[key].push(element.value);
+            });
         }
     }
 
@@ -77,7 +77,7 @@ document.getElementById('saveButton').addEventListener('click', function() {
     getFormValues('#levelOfEducation', 'levelOfEducation');
     getFormValues('#major', 'major');
     getFormValues('#minor', 'minor');
-    getFormValues('#fromMonth', 'educationFromMonth'); // Renamed keys for clarity
+    getFormValues('#fromMonth', 'educationFromMonth');
     getFormValues('#fromYear', 'educationFromYear');
     getFormValues('#toMonth', 'educationToMonth');
     getFormValues('#toYear', 'educationToYear');
@@ -104,16 +104,21 @@ document.getElementById('saveButton').addEventListener('click', function() {
     getFormValues('#visa-description', 'visaDescription');
 
     // EEOC Questions
-    getFormValues('#gender', 'eeocGender');
+
+    var eeocGender = document.getElementById('eeocgender').value;
+    formData['eeocGender'].push(eeocGender);
+
     getFormValues('#race', 'eeocRace');
     getFormValues('#veteran', 'eeocVeteran');
     getFormValues('#disability', 'eeocDisability');
 
     // Now you have all the data in the formData object
-    console.log(formData);
+    //console.log(formData);
+
+    alert(JSON.stringify(formData, null, 2));
 
     // save it to chrome extension sandbox storage
-    chrome.storage.local.set({ 'formData': formData }, function() {
+    chrome.storage.local.set({ 'formData': formData }, function () {
         console.log('Data saved:', formData);
     });
 });
@@ -123,13 +128,27 @@ document.getElementById('saveButton').addEventListener('click', function() {
 // if is us citizen, then hide visa question section
 // else show the visa question section 
 document.querySelectorAll('input[name="citizen"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    if (this.checked) { // Check if the *current* radio button is checked
-      if (this.value === "yes") {
-        document.getElementById('visaWorkQuestionsContainer').style.display = 'none';
-      } else if (this.value === "no") {
-        document.getElementById('visaWorkQuestionsContainer').style.display = 'block';
-      }
-    }
-  });
+    radio.addEventListener('change', function () {
+        if (this.checked) { // Check if the *current* radio button is checked
+            if (this.value === "yes") {
+                document.getElementById('visaWorkQuestionsContainer').style.display = 'none';
+            } else if (this.value === "no") {
+                document.getElementById('visaWorkQuestionsContainer').style.display = 'block';
+            }
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('../assets/countries.json') // Or an API endpoint
+        .then(response => response.json())
+        .then(countries => {
+            const select = document.getElementById('address-country');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.code; // Use country codes (e.g., US, CA)
+                option.text = country.name;
+                select.appendChild(option);
+            });
+        });
 });
