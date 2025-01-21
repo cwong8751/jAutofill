@@ -83,13 +83,13 @@ window.onload = () => {
                             input.value = formData.email;
                         }
 
-                        if (iPlaceholder.includes('address') || ilabel.includes('address') || iAutoId.includes('address')) {
+                        if (iPlaceholder.includes('address') || ilabel.includes('address') || iAutoId.includes('address') || iId.includes('address')) {
                             // line 1 and line 2
-                            if (iPlaceholder.includes('1') || iPlaceholder.includes('one') || ilabel.includes('1') || ilabel.includes('one') || iAutoId.includes('1') || iAutoId.includes('one')) {
+                            if (iPlaceholder.includes('1') || iPlaceholder.includes('one') || ilabel.includes('1') || ilabel.includes('one') || iAutoId.includes('1') || iAutoId.includes('one') || iId.includes('1') || iId.includes('one')) {
                                 input.value = formData["address"];
                             }
 
-                            if (iPlaceholder.includes('2') || iPlaceholder.includes('two') || ilabel.includes('2') || ilabel.includes('two') || iAutoId.includes('2') || iAutoId.includes('two')) {
+                            if (iPlaceholder.includes('2') || iPlaceholder.includes('two') || ilabel.includes('2') || ilabel.includes('two') || iAutoId.includes('2') || iAutoId.includes('two') || iId.includes('2') || iId.includes('two')) {
                                 input.value = formData["address-line2"];
                             }
                         }
@@ -116,28 +116,48 @@ window.onload = () => {
                         input.dispatchEvent(new Event('input', { bubbles: true }));
 
                         break;
-                    case 'select':
-                        const iid = input.id.toLowerCase().trim();
-                        const aPlaceholder = input.getAttribute('aria-placeholder') ? input.getAttribute('aria-placeholder').toLowerCase().trim() : '';
-                        const iaid = input.getAttribute('data-automation-id') ? input.getAttribute('data-automation-id').toLowerCase().trim() : '';
-
-                        // if(iid.includes('state') || aPlaceholder.includes('state') || iaid.includes('state') || iid.includes('region') || aPlaceholder.includes('region') || iaid.includes('region')) {
-                        //     input.value = formData["address-state"];
-                        // }
-
-                        // select phone options
-                        if (iid.includes('phone') || aPlaceholder.includes('phone') || iaid.includes('phone') || iid.includes('device') || aPlaceholder.includes('device') || iaid.includes('device')) {
-                           
-                            Array.from(input.options).forEach(option => {
-                                if (option.value === 'mobile') {
-                                    input.value = option.value;
-                                }
-                            });
-                        }
-                        break;
                     default:
                         break;
                 }
+            });
+
+            // look at all selects
+            const allSelects = document.querySelectorAll('select');
+
+            allSelects.forEach(select => {
+                const iid = select.id.toLowerCase().trim();
+                const aPlaceholder = select.getAttribute('aria-placeholder') ? select.getAttribute('aria-placeholder').toLowerCase().trim() : '';
+                const iaid = select.getAttribute('data-automation-id') ? select.getAttribute('data-automation-id').toLowerCase().trim() : '';
+
+
+                // select country options
+                if (iid.includes('country') || aPlaceholder.includes('country') || iaid.includes('country')) {
+                    Array.from(select.options).forEach(option => {
+                        if (option.value.toLowerCase().includes('united states') || option.value.toLowerCase().includes('usa') || option.value.toLowerCase().includes('united states of america')) {
+                            select.value = option.value;
+                            select.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    });
+                }
+
+                // if(iid.includes('state') || aPlaceholder.includes('state') || iaid.includes('state') || iid.includes('region') || aPlaceholder.includes('region') || iaid.includes('region')) {
+                //     input.value = formData["address-state"];
+                // }
+
+                // select phone options
+                if (iid.includes('device') || aPlaceholder.includes('device') || iaid.includes('device')) {
+                   console.log("found phone select");
+                    Array.from(select.options).forEach(option => {
+                        console.log("option value: " + option.value);
+                        if (option.value.toLowerCase().includes('mobile')) {
+                            console.log("setting phone select to mobile");
+                            select.value = option.value;
+                            select.dispatchEvent(new Event('change', { bubbles: true }));
+                        }
+                    });
+                }
+
+
             });
         });
     };

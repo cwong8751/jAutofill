@@ -1,35 +1,99 @@
-body {
-    font-family: sans-serif;
-    padding: 10px;
-}
-
-label {
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General body styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Main title */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Section headers */
+  h2 {
+    margin-top: 20px;
+    color: #444;
+    font-size: 1.1rem;
+  }
+  
+  /* Form labels */
+  label {
     display: block;
     margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="tel"],
-input[type="email"] {
-    width: calc(100% - 12px);
-    /* Account for padding */
-    padding: 5px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    /* Include padding in width */
-}
-
-#saveButton {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
+    font-size: 0.95rem;
+  }
+  
+  /* Input fields, select menus, and text areas */
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #007bff;
     color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
-}
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Section container with some padding */
+  section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Horizontal line between sections */
+  hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Button visibility for adding/removing work */
+  button.removeWorkButton {
+    display: none;
+  }
+  
+  #addMoreWorkButton {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  /* Links */
+  a {
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
