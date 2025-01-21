@@ -25,6 +25,8 @@ window.onload = () => {
 
     button.onclick = () => {
 
+        console.log("trying to autofill");
+
         chrome.storage.local.get('formData', function (result) {
             if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
@@ -38,9 +40,14 @@ window.onload = () => {
                 alert('No form data found');
                 return;
             }
+            else{
+                console.log("got form data, starting autofill");
+            }
 
             // get a list of all inputs 
             const allInputs = document.querySelectorAll('input');
+
+            console.log("got all inputs, there are " + allInputs.length + " inputs");
 
             // traverse all inputs
             allInputs.forEach(input => {
@@ -48,19 +55,23 @@ window.onload = () => {
                 switch (input.type) {
                     case 'text':
                         // check input placeholder value
+                        const iId = input.id.toLowerCase().trim();
                         const iPlaceholder = input.placeholder.toLowerCase().trim();
                         const ilabel = input.getAttribute('aria-label') ? input.getAttribute('aria-label').toLowerCase().trim() : '';
                         const iAutoId = input.getAttribute('data-automation-id') ? input.getAttribute('data-automation-id').toLowerCase().trim() : '';
+                        const iAutocomplete = input.getAttribute('autocomplete') ? input.getAttribute('autocomplete').toLowerCase().trim() : '';
 
-                        if (iPlaceholder.includes('first') || iPlaceholder.includes('given') || ilabel.includes('first') || ilabel.includes('given') || iAutoId.includes('first') || iAutoId.includes('given')) {
+                        console.log("currently looking at: " + iId);
+
+                        if (iPlaceholder.includes('first') || iPlaceholder.includes('given') || ilabel.includes('first') || ilabel.includes('given') || iAutoId.includes('first') || iAutoId.includes('given') || iId.includes('first') || iId.includes('given') || iAutocomplete.includes('given-name')) {
                             input.value = formData.firstName;
                         }
 
-                        if (iPlaceholder.includes('last') || iPlaceholder.includes('family') || ilabel.includes('last') || ilabel.includes('family') || iAutoId.includes('last') || iAutoId.includes('family')) {
+                        if (iPlaceholder.includes('last') || iPlaceholder.includes('family') || ilabel.includes('last') || ilabel.includes('family') || iAutoId.includes('last') || iAutoId.includes('family') || iId.includes('last') || iId.includes('family') || iAutocomplete.includes('family-name')) {
                             input.value = formData.lastName;
                         }
 
-                        if (iPlaceholder.includes('city') || ilabel.includes('city') || iAutoId.includes('city')) {
+                        if (iPlaceholder.includes('city') || ilabel.includes('city') || iAutoId.includes('city') || iId.includes('city')) {
                             input.value = formData['address-city'];
                         }
 
@@ -68,7 +79,7 @@ window.onload = () => {
                             input.value = formData["address-zip"];
                         }
 
-                        if (iPlaceholder.includes('email') || iPlaceholder.includes('email address') || ilabel.includes('email') || ilabel.includes('email address')) {
+                        if (iPlaceholder.includes('email') || iPlaceholder.includes('email address') || ilabel.includes('email') || ilabel.includes('email address') || iAutoId.includes('email') || iAutoId.includes('email address') || iId.includes('email')) {
                             input.value = formData.email;
                         }
 
@@ -92,16 +103,18 @@ window.onload = () => {
                             }
                         }
 
-                        // trigger input event
-                        const event = new Event('input', { bubbles: true });
-                        input.dispatchEvent(event);
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
 
                         break;
                     case 'tel':
                         input.value = formData.phone;
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+
                         break;
                     case 'email':
                         input.value = formData.email;
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+
                         break;
                     case 'select':
                         const iid = input.id.toLowerCase().trim();

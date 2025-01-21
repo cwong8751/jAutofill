@@ -1,28 +1,147 @@
 // add more button
 document.getElementById('addMoreWorkButton').addEventListener('click', function () {
-
-    // renders the add more work form
-    const workFormContainer = document.getElementById('workExperienceContainer');
+    // Target the container where new sections will be added
     const workSectionContainer = document.querySelector('.workSectionContainer');
-    const newContainer = workFormContainer.cloneNode(true);
 
-    // clear inputs
-    const inputs = newContainer.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-        if (input.type === 'checkbox') {
-            input.checked = false;
-        } else if (input.tagName === 'SELECT') {
-            input.selectedIndex = 0;
-        }
-        else {
-            input.value = '';
-        }
+    // Create the new work section div
+    const newWorkSection = document.createElement('div');
+    newWorkSection.classList.add('workSection'); // Optional: add a class for styling
+
+    // Job Title
+    const jobTitleLabel = document.createElement('label');
+    jobTitleLabel.setAttribute('for', 'jobTitle');
+    jobTitleLabel.textContent = 'Job Title:';
+    
+    const jobTitleInput = document.createElement('input');
+    jobTitleInput.type = 'text';
+    jobTitleInput.name = 'jobTitle';
+    jobTitleInput.id = 'jobTitle';
+
+    // Company/Organization
+    const companyLabel = document.createElement('label');
+    companyLabel.setAttribute('for', 'company');
+    companyLabel.textContent = 'Company/Organization:';
+    const companyInput = document.createElement('input');
+    companyInput.type = 'text';
+    companyInput.name = 'company';
+    companyInput.id = 'company';
+
+    // Location
+    const locationLabel = document.createElement('label');
+    locationLabel.setAttribute('for', 'location');
+    locationLabel.textContent = 'Location:';
+    const locationInput = document.createElement('input');
+    locationInput.type = 'text';
+    locationInput.name = 'location';
+    locationInput.id = 'location';
+
+    // From Date (Month and Year)
+    const fromLabel = document.createElement('label');
+    fromLabel.textContent = 'From:';
+    const fromMonthSelect = document.createElement('select');
+    fromMonthSelect.name = 'fromMonth';
+    fromMonthSelect.id = 'fromMonth';
+    const months = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    months.forEach((month, index) => {
+        const option = document.createElement('option');
+        option.value = String(index + 1).padStart(2, '0');
+        option.textContent = month;
+        fromMonthSelect.appendChild(option);
     });
+    const fromYearInput = document.createElement('input');
+    fromYearInput.type = 'number';
+    fromYearInput.name = 'fromYear';
+    fromYearInput.id = 'fromYear';
+    fromYearInput.min = 1900;
+    fromYearInput.max = 2100;
+    fromYearInput.value = '2024';
 
-    // clone
-    newContainer.querySelector('.removeWorkButton').style.display = 'inline';
-    workSectionContainer.appendChild(newContainer);
+    // To Date (Month and Year)
+    const toLabel = document.createElement('label');
+    toLabel.textContent = 'To:';
+    const toMonthSelect = document.createElement('select');
+    toMonthSelect.name = 'toMonth';
+    toMonthSelect.id = 'toMonth';
+    months.forEach((month, index) => {
+        const option = document.createElement('option');
+        option.value = String(index + 1).padStart(2, '0');
+        option.textContent = month;
+        toMonthSelect.appendChild(option);
+    });
+    const toYearInput = document.createElement('input');
+    toYearInput.type = 'number';
+    toYearInput.name = 'toYear';
+    toYearInput.id = 'toYear';
+    toYearInput.min = 1900;
+    toYearInput.max = 2100;
+    toYearInput.value = '2024';
+
+    // Current Job Checkbox
+    const currentJobInput = document.createElement('input');
+    currentJobInput.type = 'checkbox';
+    currentJobInput.name = 'currentJob';
+    currentJobInput.id = 'currentJob';
+    const currentJobLabel = document.createElement('label');
+    currentJobLabel.setAttribute('for', 'currentJob');
+    currentJobLabel.textContent = 'I currently work here';
+
+    // Description
+    const descriptionLabel = document.createElement('label');
+    descriptionLabel.setAttribute('for', 'description');
+    descriptionLabel.textContent = 'Description:';
+    const descriptionTextarea = document.createElement('textarea');
+    descriptionTextarea.name = 'description';
+    descriptionTextarea.id = 'description';
+    descriptionTextarea.rows = 4;
+    descriptionTextarea.cols = 50;
+
+    // Append all elements to the new work section
+    newWorkSection.appendChild(jobTitleLabel);
+    newWorkSection.appendChild(jobTitleInput);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(companyLabel);
+    newWorkSection.appendChild(companyInput);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(locationLabel);
+    newWorkSection.appendChild(locationInput);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(fromLabel);
+    newWorkSection.appendChild(fromMonthSelect);
+    newWorkSection.appendChild(fromYearInput);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(toLabel);
+    newWorkSection.appendChild(toMonthSelect);
+    newWorkSection.appendChild(toYearInput);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(currentJobInput);
+    newWorkSection.appendChild(currentJobLabel);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    newWorkSection.appendChild(descriptionLabel);
+    newWorkSection.appendChild(descriptionTextarea);
+    newWorkSection.appendChild(document.createElement('br'));
+
+    // Add a remove button for the new work section
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove Work Section';
+    removeButton.type = 'button';
+    removeButton.classList.add('removeWorkButton');
+    removeButton.addEventListener('click', function () {
+        newWorkSection.remove();
+    });
+    newWorkSection.appendChild(removeButton);
+
+    // Append the new work section to the work section container
+    workSectionContainer.appendChild(newWorkSection);
 });
+
 
 document.querySelector('.workSectionContainer').addEventListener('click', function (event) {
     if (event.target.classList.contains('removeWorkButton')) {
@@ -223,6 +342,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const formData = result.formData;
+
+        if (!formData) {
+            alert('No form data found');
+            return;
+        }
 
         // Populate the personal info fields
         if (formData.firstName) document.getElementById('firstName').value = formData.firstName;
