@@ -11,7 +11,7 @@ document.getElementById('addMoreWorkButton').addEventListener('click', function 
     const jobTitleLabel = document.createElement('label');
     jobTitleLabel.setAttribute('for', 'jobTitle');
     jobTitleLabel.textContent = 'Job Title:';
-    
+
     const jobTitleInput = document.createElement('input');
     jobTitleInput.type = 'text';
     jobTitleInput.name = 'jobTitle';
@@ -208,7 +208,7 @@ document.getElementById('saveButton').addEventListener('click', function () {
 
     // Work Experience (Handles multiple entries)
     formData.workExperiences = [];
-    document.querySelectorAll('.workSectionContainer > div').forEach(workSection => {
+    document.querySelectorAll('.workSection').forEach(workSection => {
         const workData = {};
         workData.jobTitle = workSection.querySelector('#jobTitle').value.trim();
         workData.company = workSection.querySelector('#company').value.trim();
