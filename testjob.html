@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form action="#" method="post">
+            <div class="section-title">Personal Information</div>
+            <label for="first-name">Legal First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Legal Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="preferred-name">Preferred Name:</label>
+            <input type="text" id="preferred-name" name="preferred-name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address-line1">Address Line 1:</label>
+            <input type="text" id="address-line1" name="address-line1" required>
+
+            <label for="address-line2">Address Line 2:</label>
+            <input type="text" id="address-line2" name="address-line2">
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="zip">Zip Code:</label>
+            <input type="text" id="zip" name="zip" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <div class="section-title">Education</div>
+            <label for="education">Education:</label>
+            <input type="text" id="education" name="education" required>
+
+            <label for="school-name">School Name:</label>
+            <input type="text" id="school-name" name="school-name" required>
+
+            <label for="major">Major:</label>
+            <input type="text" id="major" name="major" required>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required>
+
+            <div class="section-title">Work Experience</div>
+            <label for="work-experience-1">Work Experience 1:</label>
+            <input type="text" id="work-experience-1" name="work-experience-1" required>
+
+            <label for="work-experience-1-role">Role:</label>
+            <input type="text" id="work-experience-1-role" name="work-experience-1-role" required>
+
+            <label for="work-experience-1-start-date">Start Date:</label>
+            <input type="date" id="work-experience-1-start-date" name="work-experience-1-start-date" required>
+
+            <label for="work-experience-1-end-date">End Date:</label>
+            <input type="date" id="work-experience-1-end-date" name="work-experience-1-end-date" required>
+
+            <label for="work-experience-1-description">Job Description:</label>
+            <textarea id="work-experience-1-description" name="work-experience-1-description" rows="4" required></textarea>
+            <label for="work-experience-1-current">
+                <input type="checkbox" id="work-experience-1-current" name="work-experience-1-current">
+                I currently work here
+            </label>
+
+            <label for="work-experience-2">Work Experience 2:</label>
+            <input type="text" id="work-experience-2" name="work-experience-2" required>
+
+            <label for="work-experience-2-role">Role:</label>
+            <input type="text" id="work-experience-2-role" name="work-experience-2-role" required>
+
+            <label for="work-experience-2-start-date">Start Date:</label>
+            <input type="date" id="work-experience-2-start-date" name="work-experience-2-start-date" required>
+
+            <label for="work-experience-2-end-date">End Date:</label>
+            <input type="date" id="work-experience-2-end-date" name="work-experience-2-end-date" required>
+
+            <label for="work-experience-2-description">Job Description:</label>
+            <textarea id="work-experience-2-description" name="work-experience-2-description" rows="4" required></textarea>
+
+            <div class="section-title">Eligibility</div>
+            <label for="us-citizen">Are you a US citizen or permanent resident?</label>
+            <div>
+                <input type="radio" id="us-citizen-yes" name="us-citizen" value="yes" required>
+                <label for="us-citizen-yes">Yes</label>
+                <input type="radio" id="us-citizen-no" name="us-citizen" value="no" required>
+                <label for="us-citizen-no">No</label>
+            </div>
+
+            <label for="eligible-work">Are you currently eligible to work in the US?</label>
+            <div>
+                <input type="radio" id="eligible-work-yes" name="eligible-work" value="yes" required>
+                <label for="eligible-work-yes">Yes</label>
+                <input type="radio" id="eligible-work-no" name="eligible-work" value="no" required>
+                <label for="eligible-work-no">No</label>
+            </div>
+
+            <label for="sponsorship">Do you now or in the future require sponsorship to work in the US?</label>
+            <div>
+                <input type="radio" id="sponsorship-yes" name="sponsorship" value="yes" required>
+                <label for="sponsorship-yes">Yes</label>
+                <input type="radio" id="sponsorship-no" name="sponsorship" value="no" required>
+                <label for="sponsorship-no">No</label>
+            </div>
+
+            <div class="section-title">Demographics</div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+
+            <label for="race">Race/Ethnicity:</label>
+            <select id="race" name="race" required>
+                <option value="">Select</option>
+                <option value="hispanic-latino">Hispanic or Latino</option>
+                <option value="white">White</option>
+                <option value="black-african-american">Black or African American</option>
+                <option value="native-american">Native American or Alaska Native</option>
+                <option value="asian">Asian</option>
+                <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
+                <option value="two-or-more">Two or More Races</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+
+            <label for="disability">Do you have a disability?</label>
+            <div>
+                <input type="radio" id="disability-yes" name="disability" value="yes" required>
+                <label for="disability-yes">Yes</label>
+                <input type="radio" id="disability-no" name="disability" value="no" required>
+                <label for="disability-no">No</label>
+                <input type="radio" id="disability-prefer-not-to-say" name="disability" value="prefer-not-to-say" required>
+                <label for="disability-prefer-not-to-say">Prefer not to say</label>
+            </div>
+
+            <label for="veteran">Are you a veteran?</label>
+            <div>
+                <input type="radio" id="veteran-yes" name="veteran" value="yes" required>
+                <label for="veteran-yes">Yes</label>
+                <input type="radio" id="veteran-no" name="veteran" value="no" required>
+                <label for="veteran-no">No</label>
+                <input type="radio" id="veteran-prefer-not-to-say" name="veteran" value="prefer-not-to-say" required>
+                <label for="veteran-prefer-not-to-say">Prefer not to say</label>
+            </div>
+
+            <div class="section-title">Attachments</div>
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" required>
+
+            <label for="coverletter">Cover Letter:</label>
+            <textarea id="coverletter" name="coverletter" rows="5" required></textarea>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+
+</html>
