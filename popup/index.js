@@ -82,10 +82,10 @@ document.getElementById('saveButton').addEventListener('click', function () {
     getFormValues('#levelOfEducation', 'levelOfEducation');
     getFormValues('#major', 'major');
     getFormValues('#minor', 'minor');
-    getFormValues('#fromMonth', 'educationFromMonth');
-    getFormValues('#fromYear', 'educationFromYear');
-    getFormValues('#toMonth', 'educationToMonth');
-    getFormValues('#toYear', 'educationToYear');
+    getFormValues('#fromMonthEdu', 'educationFromMonth');
+    getFormValues('#fromYearEdu', 'educationFromYear');
+    getFormValues('#toMonthEdu', 'educationToMonth');
+    getFormValues('#toYearEdu', 'educationToYear');
 
     // Work Experience (Handles multiple entries)
     formData.workExperiences = [];
@@ -111,15 +111,16 @@ document.getElementById('saveButton').addEventListener('click', function () {
     });
 
     // Citizenship and Visa
+    getFormValues('input[name="citizen"]:checked', 'citizen');
     getFormValues('input[name="eligible"]:checked', 'eligible');
     getFormValues('input[name="sponsor"]:checked', 'sponsor');
     getFormValues('#visa-description', 'visaDescription');
 
     // EEOC Questions
-    getFormValues('#gender', 'eeocGender');
-    getFormValues('#race', 'eeocRace');
-    getFormValues('#veteran', 'eeocVeteran');
-    getFormValues('#disability', 'eeocDisability');
+    getFormValues('#eeocgender', 'eeocGender');
+    getFormValues('#eeocrace', 'eeocRace');
+    getFormValues('#eeocveteran', 'eeocVeteran');
+    getFormValues('#eeocdisability', 'eeocDisability');
 
     // Validation: Check if any required field is empty
     for (const key in formData) {
@@ -237,19 +238,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (formData.phone) document.getElementById('phone').value = formData.phone;
         if (formData.email) document.getElementById('email').value = formData.email;
 
-        // Populate the account info fields
         if (formData.username) document.getElementById('username').value = formData.username;
         if (formData.password) document.getElementById('password').value = formData.password;
 
-        // Populate the education fields
         if (formData.schoolName) document.getElementById('schoolName').value = formData.schoolName;
         if (formData.levelOfEducation) document.getElementById('levelOfEducation').value = formData.levelOfEducation;
         if (formData.major) document.getElementById('major').value = formData.major;
         if (formData.minor) document.getElementById('minor').value = formData.minor;
-        if (formData.educationFromMonth) document.getElementById('fromMonth').value = formData.educationFromMonth;
-        if (formData.educationFromYear) document.getElementById('fromYear').value = formData.educationFromYear;
-        if (formData.educationToMonth) document.getElementById('toMonth').value = formData.educationToMonth;
-        if (formData.educationToYear) document.getElementById('toYear').value = formData.educationToYear;
+        if (formData.educationFromMonth) document.getElementById('fromMonthEdu').value = formData.educationFromMonth;
+        if (formData.educationFromYear) document.getElementById('fromYearEdu').value = formData.educationFromYear;
+        if (formData.educationToMonth) document.getElementById('toMonthEdu').value = formData.educationToMonth;
+        if (formData.educationToYear) document.getElementById('toYearEdu').value = formData.educationToYear;
 
         // Populate the work experience fields
         if (formData.workExperiences) {
@@ -315,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Citizenship and Visa info
+        if (formData.citizen) document.querySelector(`input[name="citizen"][value="${formData.citizen}"]`).checked = true;
         if (formData.eligible) document.querySelector(`input[name="eligible"][value="${formData.eligible}"]`).checked = true;
         if (formData.sponsor) document.querySelector(`input[name="sponsor"][value="${formData.sponsor}"]`).checked = true;
         if (formData.visaDescription) document.getElementById('visa-description').value = formData.visaDescription;
@@ -324,5 +324,26 @@ document.addEventListener('DOMContentLoaded', function () {
         if (formData.eeocRace) document.getElementById('eeocrace').value = formData.eeocRace;
         if (formData.eeocVeteran) document.getElementById('eeocveteran').value = formData.eeocVeteran;
         if (formData.eeocDisability) document.getElementById('eeocdisability').value = formData.eeocDisability;
+    });
+});
+
+
+document.getElementById('showStorage').addEventListener('click', function () {
+    chrome.storage.local.get('formData', function (result) {
+        if (chrome.runtime.lastError) {
+            console.error(chrome.runtime.lastError.message);
+            return;
+        }
+
+        alert(JSON.stringify(result.formData, null, 2));
+
+        navigator.clipboard.writeText(JSON.stringify(result.formData, null, 2))
+            .then(() => {
+                alert('Data copied to clipboard!');
+            })
+            .catch(err => {
+                console.error('Failed to copy data: ', err);
+                alert('Failed to copy data to clipboard.');
+            });
     });
 });

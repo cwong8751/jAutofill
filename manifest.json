@@ -1,54 +1,30 @@
 {
-    "name": "jAutofill",
-    "description": "This is a job application autofiller",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "./popup/index.html"
-    },
-    "permissions": [
-      "activeTab",
-      "storage",
-      "scripting"
-    ],
-    "host_permissions": [
-      "<all_urls>"
-    ],
-    "content_scripts": [
-      {
-        "matches": [
-          "*://*.apply/*",
-          "*://*.careers/*",
-          "*://*.jobs/*",
-          "*://*.recruiting/*",
-          "*://*.talent/*",
-          "*://*.hr/*",
-          "*://*.workday.com/careers/*",
-          "*://*.taleo.net/*",
-          "*://*.brassring.com/*",
-          "*://*.greenhouse.io/*",
-          "*://*.lever.co/*",
-          "*://*.icims.com/*",
-          "*://*.applicantpro.com/*",
-          "*://*.bamboohr.com/careers/*",
-          "*://*.jobvite.com/*",
-          "*://*.smartrecruiters.com/*",
-          "*://*.workable.com/*",
-          "*://*.ultipro.com/*",
-          "*://*.successfactors.com/*",
-          "*://*.adp.com/careers/*",
-          "*://*.indeed.com/apply/*",
-          "*://*.linkedin.com/jobs/view/*",
-          "*://*.monster.com/apply/*",
-          "*://*.careerbuilder.com/apply/*",
-          "*://*.simplyhired.com/apply/*",
-          "*://*.glassdoor.com/partner/*",
-          "*://*.usajobs.gov/*"
-        ],
-        "js": [
-          "./scripts/content.js"
-        ],
-        "run_at": "document_end"
-      }
-    ]
-  }
+  "name": "jAutofill",
+  "description": "This is a job application autofiller",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "file://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*",
+        "file://*/*"
+      ],
+      "js": [
+        "./scripts/content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}

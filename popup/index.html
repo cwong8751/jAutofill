@@ -7,6 +7,7 @@
 
 <body>
   <button id="debugButton">Debug</button>
+  <button id="showStorage">what is in storage</button>
   <h1>jautofiller</h1>
   <i>a auto resume filler</i>
   <p>it doesn't work all the time, double check your information</p>
@@ -76,7 +77,7 @@
     <input type="text" id="minor" name="minor"><br><br>
 
     <label>From:</label><br>
-    <select id="fromMonth" name="fromMonth">
+    <select id="fromMonthEdu" name="fromMonth">
       <option value="01">January</option>
       <option value="02">February</option>
       <option value="03">March</option>
@@ -90,10 +91,10 @@
       <option value="11">November</option>
       <option value="12">December</option>
     </select>
-    <input type="number" id="fromYear" name="fromYear" min="1900" max="2100" value="2024"><br><br>
+    <input type="number" id="fromYearEdu" name="fromYear" min="1900" max="2100" value="2024"><br><br>
 
     <label>To:</label><br>
-    <select id="toMonth" name="toMonth">
+    <select id="toMonthEdu" name="toMonth">
       <option value="01">January</option>
       <option value="02">February</option>
       <option value="03">March</option>
@@ -108,14 +109,14 @@
       <option value="12">December</option>
       <option value="present">Present</option>
     </select>
-    <input type="number" id="toYear" name="toYear" min="1900" max="2100" value="2024"><br><br>
+    <input type="number" id="toYearEdu" name="toYear" min="1900" max="2100" value="2024"><br><br>
   </section>
 
   <hr>
   <section class="workSectionContainer">
     <h2>work experience</h2>
     <div id="workExperienceContainer">
-      <label for="jobTitle">Job Title:</label><br>
+      <!-- <label for="jobTitle">Job Title:</label><br>
       <input type="text" id="jobTitle" name="jobTitle"><br><br>
 
       <label for="company">Company/Organization:</label><br>
@@ -163,7 +164,7 @@
       <label for="currentJob">I currently work here</label><br><br>
 
       <label for="description">Description:</label><br>
-      <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+      <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br> -->
       <button class="removeWorkButton" style="display:none;">Remove</button>
       <button id="addMoreWorkButton">Add more</button><br><br>
     </div>
